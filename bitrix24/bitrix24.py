@@ -230,7 +230,7 @@ class Bitrix24(object):
         url = self._resolve_call_url(method, endpoint=endpoint)
         query = {'auth': self.access_token}
         try:
-            r = requests.post(url, json=params, params=query)
+            r = requests.post(url, json=params, params=query, verify=False)
         except requests.exceptions.RequestException:
             r = None
         result = utils.resolve_response(r)
